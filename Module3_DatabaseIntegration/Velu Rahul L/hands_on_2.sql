@@ -1,6 +1,5 @@
 -- TASK 1 : INSERT DATA
 
-
 -- departments
 
 INSERT INTO departments (dept_name, head_of_dept, budget) VALUES
