@@ -2,27 +2,15 @@ import { createRouter, createWebHistory }
 
 from "vue-router";
 
-import HomeView
+import HomeView from "../views/HomeView.vue";
 
-from "../views/HomeView.vue";
+import CoursesView from "../views/CoursesView.vue";
 
-import CoursesView
+import CourseDetailView from "../views/CourseDetailView.vue";
 
-from "../views/CoursesView.vue";
+import ProfileView from "../views/ProfileView.vue";
 
-import CourseDetailView
-
-from "../views/CourseDetailView.vue";
-
-import ProfileView
-
-from "../views/ProfileView.vue";
-
-const router = createRouter({
-
-history:createWebHistory(),
-
-routes:[
+const routes=[
 
 {
 
@@ -56,7 +44,13 @@ component:ProfileView
 
 }
 
-]
+];
+
+const router=createRouter({
+
+history:createWebHistory(),
+
+routes
 
 });
 
