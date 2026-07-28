@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Portal</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- Header -->
+    <!-- ========================= -->
+
+    <header>
+
+        <h1>Student Portal</h1>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#">Courses</a></li>
+
+                <li><a href="#">Notifications</a></li>
+
+                <li><a href="#">Profile</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- Hero Section -->
+    <!-- ========================= -->
+
+    <section id="hero">
+
+        <h2>Welcome to the Student Portal</h2>
+
+        <p>
+            Learn modern frontend development with
+            HTML, CSS and JavaScript.
+        </p>
+
+        <button id="loadCourses">
+            Load Courses
+        </button>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Loading Message -->
+    <!-- ========================= -->
+
+    <p id="loadingMessage">
+
+        Loading courses...
+
+    </p>
+
+    <!-- ========================= -->
+    <!-- Course Section -->
+    <!-- ========================= -->
+
+    <section id="courses">
+
+        <h2>Available Courses</h2>
+
+        <div class="course-grid">
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Notifications -->
+    <!-- ========================= -->
+
+    <section id="notifications">
+
+        <h2>Notifications</h2>
+
+        <div id="spinner">
+
+            Loading...
+
+        </div>
+
+        <div id="notificationList">
+
+        </div>
+
+        <div id="errorBox">
+
+        </div>
+
+        <button id="retryButton">
+
+            Retry
+
+        </button>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Axios CDN -->
+    <!-- ========================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>
