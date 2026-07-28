@@ -1,30 +1,14 @@
-import { useContext }
+import { useSelector, useDispatch } from "react-redux";
 
-from "react";
-
-import {
-
-EnrollmentContext
-
-}
-
-from "../context/EnrollmentContext";
+import { unenroll } from "../redux/enrollmentSlice";
 
 function ProfilePage(){
 
-const{
+const dispatch = useDispatch();
 
-enrolledCourses,
+const enrolledCourses = useSelector(
 
-remove
-
-}
-
-=
-
-useContext(
-
-EnrollmentContext
+state => state.enrollment.enrolledCourses
 
 );
 
@@ -34,7 +18,7 @@ return(
 
 <h1>
 
-Profile
+Student Profile
 
 </h1>
 
@@ -69,34 +53,26 @@ enrolledCourses.map(course=>(
 key={course.id}
 
 style={{
-
 border:"1px solid gray",
-
 padding:"15px",
-
 marginBottom:"15px"
-
 }}
 
 >
 
-<h3>
+<h3>{course.name}</h3>
 
-{course.name}
-
-</h3>
-
-<p>
-
-{course.code}
-
-</p>
+<p>{course.code}</p>
 
 <button
 
 onClick={()=>
 
-remove(course.id)
+dispatch(
+
+unenroll(course.id)
+
+)
 
 }
 
