@@ -1,0 +1,37 @@
+header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:#1565c0;
+
+padding:20px;
+
+}
+
+header h2{
+
+color:white;
+
+}
+
+nav{
+
+display:flex;
+
+gap:20px;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
