@@ -1,0 +1,55 @@
+<h1>
+
+Courses
+
+</h1>
+
+<input
+
+type="text"
+
+placeholder="Search Course"
+
+[(ngModel)]="searchTerm"
+
+>
+
+<div *ngIf="loading">
+
+Loading...
+
+</div>
+
+<div
+
+*ngIf="
+
+!loading
+
+&&
+
+filteredCourses.length==0
+
+"
+
+>
+
+No courses found
+
+</div>
+
+<app-course-card
+
+*ngFor="let course of filteredCourses"
+
+[name]="course.title"
+
+[code]="'CS10'+course.id"
+
+[credits]="4"
+
+[grade]="'A'"
+
+>
+
+</app-course-card>
