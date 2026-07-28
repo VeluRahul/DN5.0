@@ -1,0 +1,197 @@
+/*
+
+WCAG Contrast Improvements
+
+Before
+Background : #ffffff
+Text : #888888
+
+Contrast Ratio : 2.9 : 1 (Failed)
+
+After
+Background : #ffffff
+Text : #222222
+
+Contrast Ratio : 15.9 : 1 (Passed)
+
+Browser Support Checked
+https://caniuse.com/css-grid
+
+Feature Used
+CSS Grid
+
+Supported
+Chrome ✓
+Firefox ✓
+Edge ✓
+Safari ✓
+
+*/
+
+:root{
+
+--primary:#1565c0;
+
+--secondary:#222222;
+
+--background:#ffffff;
+
+--border:#cccccc;
+
+}
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:Arial,sans-serif;
+
+}
+
+body{
+
+background:var(--background);
+
+color:var(--secondary);
+
+}
+
+header{
+
+background:var(--primary);
+
+padding:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+header h1{
+
+color:white;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:20px;
+
+list-style:none;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+main{
+
+padding:30px;
+
+}
+
+.course-card{
+
+border:1px solid var(--border);
+
+padding:20px;
+
+margin:20px 0;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.course-card:hover{
+
+background:#f0f8ff;
+
+}
+
+.course-card:focus{
+
+outline:3px solid blue;
+
+}
+
+button{
+
+padding:10px 18px;
+
+background:var(--primary);
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:5px;
+
+}
+
+button:hover{
+
+background:#0d47a1;
+
+}
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0 20px;
+
+border:1px solid var(--border);
+
+border-radius:5px;
+
+}
+
+footer{
+
+background:#eeeeee;
+
+padding:20px;
+
+text-align:center;
+
+margin-top:30px;
+
+}
+
+@supports(display:grid){
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+}
+
+}
