@@ -70,6 +70,16 @@ import CourseCard
 
 from "../components/CourseCard.vue";
 
+import {
+
+useEnrollmentStore
+
+}
+
+from "../stores/enrollment";
+
+const store = useEnrollmentStore();
+
 const courses = ref([]);
 
 const searchTerm = ref("");
@@ -169,6 +179,14 @@ searchTerm.value.toLowerCase()
 );
 
 });
+
+function enrollCourse(course){
+
+store.enroll(course);
+
+alert("Course Enrolled Successfully");
+
+}
 
 </script>
 
