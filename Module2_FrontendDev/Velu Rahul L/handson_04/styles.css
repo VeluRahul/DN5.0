@@ -1,0 +1,270 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7fb;
+    color:#333;
+    line-height:1.6;
+}
+
+/* ================= Header ================= */
+
+header{
+    background:#1f4e79;
+    color:white;
+    padding:18px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd54f;
+}
+
+/* ================= Hero ================= */
+
+#hero{
+    text-align:center;
+    padding:60px 20px;
+    background:white;
+}
+
+#hero h2{
+    margin-bottom:15px;
+    color:#1f4e79;
+}
+
+#hero p{
+    margin-bottom:20px;
+}
+
+#loadCourses{
+    padding:12px 22px;
+    border:none;
+    background:#1f4e79;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:16px;
+}
+
+#loadCourses:hover{
+    background:#163d60;
+}
+
+/* ================= Loading ================= */
+
+#loadingMessage{
+    text-align:center;
+    color:#d35400;
+    font-weight:bold;
+    margin:20px;
+    display:none;
+}
+
+/* ================= Courses ================= */
+
+#courses{
+    padding:40px;
+}
+
+#courses h2{
+    margin-bottom:25px;
+    color:#1f4e79;
+}
+
+.course-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:20px;
+
+}
+
+.course-card{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    padding:20px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+.course-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.course-card h3{
+
+    color:#1f4e79;
+
+    margin-bottom:10px;
+
+}
+
+.course-card p{
+
+    margin-bottom:8px;
+
+}
+
+/* ================= Notifications ================= */
+
+#notifications{
+
+    padding:40px;
+
+}
+
+#notifications h2{
+
+    margin-bottom:20px;
+
+    color:#1f4e79;
+
+}
+
+.notification-card{
+
+    background:white;
+
+    border-left:5px solid #1f4e79;
+
+    margin-bottom:15px;
+
+    padding:15px;
+
+    border-radius:6px;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.12);
+
+}
+
+/* ================= Spinner ================= */
+
+#spinner{
+
+    display:none;
+
+    margin:20px auto;
+
+    width:40px;
+
+    height:40px;
+
+    border:5px solid #ddd;
+
+    border-top:5px solid #1f4e79;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* ================= Error ================= */
+
+#errorBox{
+
+    color:red;
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+}
+
+/* ================= Retry ================= */
+
+#retryButton{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    background:#d32f2f;
+
+    color:white;
+
+    cursor:pointer;
+
+    border-radius:5px;
+
+}
+
+#retryButton:hover{
+
+    background:#b71c1c;
+
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+nav ul{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+}
