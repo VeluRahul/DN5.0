@@ -10,25 +10,21 @@ Student Portal
 
 <nav>
 
-<RouterLink to="/">
+<RouterLink to="/">Home</RouterLink>
 
-Home
+<RouterLink to="/courses">Courses</RouterLink>
 
-</RouterLink>
-
-<RouterLink to="/courses">
-
-Courses
-
-</RouterLink>
-
-<RouterLink to="/profile">
-
-Profile
-
-</RouterLink>
+<RouterLink to="/profile">Profile</RouterLink>
 
 </nav>
+
+<h3>
+
+Enrolled :
+
+{{ store.enrolledCourses.length }}
+
+</h3>
 
 </header>
 
@@ -36,13 +32,13 @@ Profile
 
 <script setup>
 
-import {
+import { RouterLink } from "vue-router";
 
-RouterLink
+import { useEnrollmentStore }
 
-}
+from "../stores/enrollment";
 
-from "vue-router";
+const store = useEnrollmentStore();
 
 </script>
 
@@ -83,6 +79,12 @@ color:white;
 text-decoration:none;
 
 font-weight:bold;
+
+}
+
+h3{
+
+color:white;
 
 }
 
