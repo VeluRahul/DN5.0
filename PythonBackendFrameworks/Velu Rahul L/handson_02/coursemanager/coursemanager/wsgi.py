@@ -1,0 +1,14 @@
+"""
+WSGI config for synchronous deployment.
+"""
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault(
+    'DJANGO_SETTINGS_MODULE',
+    'coursemanager.settings'
+)
+
+application = get_wsgi_application()
