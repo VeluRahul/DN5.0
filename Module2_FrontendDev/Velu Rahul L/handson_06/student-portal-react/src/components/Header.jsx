@@ -1,12 +1,36 @@
 import { Link } from "react-router-dom";
 
+import { useContext } from "react";
+
+import { EnrollmentContext }
+
+from "../context/EnrollmentContext";
+
 function Header(){
+
+const {
+
+enrolledCourses
+
+}
+
+=
+
+useContext(
+
+EnrollmentContext
+
+);
 
 return(
 
 <header>
 
-<h2>Student Portal</h2>
+<h2>
+
+Student Portal
+
+</h2>
 
 <nav>
 
@@ -17,6 +41,14 @@ return(
 <Link to="/profile">Profile</Link>
 
 </nav>
+
+<h3>
+
+Enrolled :
+
+{enrolledCourses.length}
+
+</h3>
 
 </header>
 
