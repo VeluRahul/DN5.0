@@ -1,0 +1,160 @@
+from flask import Blueprint
+from flask import request
+from flask import jsonify
+
+from app import db
+
+from .models import Course
+from .models import Student
+from .models import Enrollment
+
+
+courses_bp = Blueprint(
+
+    "courses",
+
+    __name__,
+
+    url_prefix="/api/courses"
+
+)
+
+
+@courses_bp.route("/", methods=["GET"])
+def get_courses():
+
+    courses = Course.query.all()
+
+    return jsonify(
+
+        [course.to_dict() for course in courses]
+
+    )
+
+
+@courses_bp.route("/", methods=["POST"])
+def create_course():
+
+    data = request.get_json()
+
+    course = Course(
+
+        name=data["name"],
+
+        code=data["code"],
+
+        credits=data["credits"],
+
+        department_id=data["department_id"]
+
+    )
+
+    db.session.add(course)
+
+    db.session.commit()
+
+    return jsonify(
+
+        course.to_dict()
+
+    ), 201
+
+
+@courses_bp.route("/<int:id>", methods=["GET"])
+def get_course(id):
+
+    course = Course.query.get_or_404(id)
+
+    return jsonify(
+
+        course.to_dict()
+
+    )
+
+
+@courses_bp.route("/<int:id>", methods=["PUT"])
+def update_course(id):
+
+    course = Course.query.get_or_404(id)
+
+    data = request.get_json()
+
+    course.name = data.get(
+
+        "name",
+
+        course.name
+
+    )
+
+    course.code = data.get(
+
+        "code",
+
+        course.code
+
+    )
+
+    course.credits = data.get(
+
+        "credits",
+
+        course.credits
+
+    )
+
+    db.session.commit()
+
+    return jsonify(
+
+        course.to_dict()
+
+    )
+
+
+@courses_bp.route("/<int:id>", methods=["DELETE"])
+def delete_course(id):
+
+    course = Course.query.get_or_404(id)
+
+    db.session.delete(course)
+
+    db.session.commit()
+
+    return jsonify({
+
+        "message": "Course deleted successfully"
+
+    })
+
+
+@courses_bp.route("/<int:id>/students", methods=["GET"])
+def course_students(id):
+
+    students = (
+
+        Student.query
+
+        .join(
+
+            Enrollment,
+
+            Student.id == Enrollment.student_id
+
+        )
+
+        .filter(
+
+            Enrollment.course_id == id
+
+        )
+
+        .all()
+
+    )
+
+    return jsonify(
+
+        [student.to_dict() for student in students]
+
+    )
