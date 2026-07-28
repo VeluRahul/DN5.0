@@ -26,7 +26,7 @@ StudentProfileComponent
 
 from './components/student-profile/student-profile.component';
 
-const routes:Routes=[
+const routes: Routes = [
 
 {
 
