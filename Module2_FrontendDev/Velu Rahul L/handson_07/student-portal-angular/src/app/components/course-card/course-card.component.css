@@ -1,0 +1,29 @@
+.card{
+
+border:1px solid #ccc;
+
+padding:20px;
+
+margin:20px;
+
+border-radius:10px;
+
+box-shadow:0 0 8px gray;
+
+}
+
+button{
+
+margin-top:15px;
+
+padding:10px;
+
+background:#1565c0;
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+}
