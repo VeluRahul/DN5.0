@@ -1,42 +1,22 @@
-import { useNavigate }
+import { useNavigate } from "react-router-dom";
 
-from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import { useContext }
+import { enroll } from "../redux/enrollmentSlice";
 
-from "react";
+function CourseCard({ course }) {
 
-import { EnrollmentContext }
+const dispatch = useDispatch();
 
-from "../context/EnrollmentContext";
-
-function CourseCard({
-
-course
-
-}){
-
-const navigate=
-
-useNavigate();
-
-const {
-
-enroll
-
-}
-
-=
-
-useContext(
-
-EnrollmentContext
-
-);
+const navigate = useNavigate();
 
 function handleEnroll(){
 
-enroll(course);
+dispatch(
+
+enroll(course)
+
+);
 
 navigate("/profile");
 
@@ -45,60 +25,25 @@ navigate("/profile");
 return(
 
 <div
-
 style={{
-
 border:"1px solid gray",
-
 padding:"20px",
-
 margin:"20px",
-
 borderRadius:"10px"
-
 }}
-
 >
 
-<h2>
+<h2>{course.name}</h2>
 
-{course.name}
+<p>Code : {course.code}</p>
 
-</h2>
+<p>Credits : {course.credits}</p>
 
-<p>
-
-{course.code}
-
-</p>
-
-<p>
-
-Credits :
-
-{course.credits}
-
-</p>
-
-<p>
-
-Grade :
-
-{course.grade}
-
-</p>
+<p>Grade : {course.grade}</p>
 
 <button
 
-onClick={()=>
-
-navigate(
-
-"/courses/"+course.id
-
-)
-
-}
+onClick={()=>navigate("/courses/"+course.id)}
 
 >
 
@@ -108,11 +53,7 @@ View Details
 
 <button
 
-style={{
-
-marginLeft:"10px"
-
-}}
+style={{marginLeft:"10px"}}
 
 onClick={handleEnroll}
 
