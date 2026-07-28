@@ -5,52 +5,45 @@ class Department(db.Model):
 
     __tablename__ = "departments"
 
-    id = db.Column(
-        db.Integer,
-        primary_key=True
-    )
+    id = db.Column(db.Integer, primary_key=True)
 
-    name = db.Column(
-        db.String(100),
-        nullable=False
-    )
+    name = db.Column(db.String(100), nullable=False)
 
-    head_of_dept = db.Column(
-        db.String(100)
-    )
+    head_of_dept = db.Column(db.String(100))
 
-    budget = db.Column(
-        db.Float
-    )
+    budget = db.Column(db.Float)
 
     courses = db.relationship(
         "Course",
         back_populates="department"
     )
 
+    def to_dict(self):
+
+        return {
+
+            "id": self.id,
+
+            "name": self.name,
+
+            "head_of_dept": self.head_of_dept,
+
+            "budget": self.budget
+
+        }
+
 
 class Course(db.Model):
 
     __tablename__ = "courses"
 
-    id = db.Column(
-        db.Integer,
-        primary_key=True
-    )
+    id = db.Column(db.Integer, primary_key=True)
 
-    name = db.Column(
-        db.String(100),
-        nullable=False
-    )
+    name = db.Column(db.String(100), nullable=False)
 
-    code = db.Column(
-        db.String(20),
-        unique=True
-    )
+    code = db.Column(db.String(20), unique=True)
 
-    credits = db.Column(
-        db.Integer
-    )
+    credits = db.Column(db.Integer)
 
     department_id = db.Column(
         db.Integer,
@@ -62,23 +55,32 @@ class Course(db.Model):
         back_populates="courses"
     )
 
+    def to_dict(self):
+
+        return {
+
+            "id": self.id,
+
+            "name": self.name,
+
+            "code": self.code,
+
+            "credits": self.credits,
+
+            "department_id": self.department_id
+
+        }
+
 
 class Student(db.Model):
 
     __tablename__ = "students"
 
-    id = db.Column(
-        db.Integer,
-        primary_key=True
-    )
+    id = db.Column(db.Integer, primary_key=True)
 
-    first_name = db.Column(
-        db.String(100)
-    )
+    first_name = db.Column(db.String(100))
 
-    last_name = db.Column(
-        db.String(100)
-    )
+    last_name = db.Column(db.String(100))
 
     email = db.Column(
         db.String(100),
@@ -90,19 +92,32 @@ class Student(db.Model):
         db.ForeignKey("departments.id")
     )
 
-    enrollment_year = db.Column(
-        db.Integer
-    )
+    enrollment_year = db.Column(db.Integer)
+
+    def to_dict(self):
+
+        return {
+
+            "id": self.id,
+
+            "first_name": self.first_name,
+
+            "last_name": self.last_name,
+
+            "email": self.email,
+
+            "department_id": self.department_id,
+
+            "enrollment_year": self.enrollment_year
+
+        }
 
 
 class Enrollment(db.Model):
 
     __tablename__ = "enrollments"
 
-    id = db.Column(
-        db.Integer,
-        primary_key=True
-    )
+    id = db.Column(db.Integer, primary_key=True)
 
     student_id = db.Column(
         db.Integer,
@@ -114,14 +129,26 @@ class Enrollment(db.Model):
         db.ForeignKey("courses.id")
     )
 
-    enrollment_date = db.Column(
-        db.Date
-    )
+    enrollment_date = db.Column(db.Date)
 
-    grade = db.Column(
-        db.String(2)
-    )
+    grade = db.Column(db.String(2))
 
     student = db.relationship("Student")
 
     course = db.relationship("Course")
+
+    def to_dict(self):
+
+        return {
+
+            "id": self.id,
+
+            "student_id": self.student_id,
+
+            "course_id": self.course_id,
+
+            "enrollment_date": str(self.enrollment_date),
+
+            "grade": self.grade
+
+        }
