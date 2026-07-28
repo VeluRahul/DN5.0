@@ -1,11 +1,5 @@
 # Student Portal
 
-Digital Nurture 5.0
-
-Module 2
-
-Hands-On 10
-
 ---
 
 ## API Layer
