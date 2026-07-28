@@ -1,24 +1,12 @@
 import { Link } from "react-router-dom";
 
-import { useContext } from "react";
-
-import { EnrollmentContext }
-
-from "../context/EnrollmentContext";
+import { useSelector } from "react-redux";
 
 function Header(){
 
-const {
+const enrolledCourses = useSelector(
 
-enrolledCourses
-
-}
-
-=
-
-useContext(
-
-EnrollmentContext
+state => state.enrollment.enrolledCourses
 
 );
 
@@ -26,11 +14,7 @@ return(
 
 <header>
 
-<h2>
-
-Student Portal
-
-</h2>
+<h2>Student Portal</h2>
 
 <nav>
 
